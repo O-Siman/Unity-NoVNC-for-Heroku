@@ -3,6 +3,7 @@ FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex; \
+    add-apt-repository ppa:flatpak/stable \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         ubuntu-desktop \
@@ -33,6 +34,8 @@ RUN set -ex; \
         libqt5x11extras5 \
         qml-module-qtquick-controls \
         qml-module-qtquick-dialogs \
+	flatpak \
+	
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
