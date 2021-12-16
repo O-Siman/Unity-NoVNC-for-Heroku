@@ -66,6 +66,6 @@ RUN chmod +x /app/run.sh
 
 RUN chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
 
-USER ubuntu
+# USER ubuntu
 
 CMD ["/app/run.sh"]
