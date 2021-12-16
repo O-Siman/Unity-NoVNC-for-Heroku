@@ -3,7 +3,6 @@ FROM ubuntu:16.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -ex; \
-    add-apt-repository ppa:flatpak/stable \
     apt-get update \
     && apt-get install -y --no-install-recommends \
         ubuntu-desktop \
@@ -34,8 +33,6 @@ RUN set -ex; \
         libqt5x11extras5 \
         qml-module-qtquick-controls \
         qml-module-qtquick-dialogs \
-	flatpak \
-	
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
@@ -57,8 +54,8 @@ RUN echo "ubuntu:ubuntu" | chpasswd && \
     adduser ubuntu sudo && \
     sudo usermod -a -G sudo ubuntu
 
-RUN sudo add-apt-repository ppa:obsproject/obs-studio \
-     && sudo apt-get update && sudo apt-get install -y obs-studio
+RUN sudo add-apt-repository ppa:flatpak/stable \
+     && sudo apt-get update && sudo apt-get install -y flatpak
 
 COPY . /app
 
