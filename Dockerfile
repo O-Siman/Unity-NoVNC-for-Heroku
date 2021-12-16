@@ -53,6 +53,8 @@ RUN adduser ubuntu
 RUN echo "ubuntu:ubuntu" | chpasswd && \
     adduser ubuntu sudo && \
     sudo usermod -a -G sudo ubuntu
+    
+RUN echo "root:alpine" | chpasswd
 
 RUN sudo add-apt-repository ppa:flatpak/stable \
      && sudo apt-get update && sudo apt-get install -y flatpak
