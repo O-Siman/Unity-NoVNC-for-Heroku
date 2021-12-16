@@ -63,6 +63,9 @@ COPY . /app
 
 RUN chmod +x /app/conf.d/websockify.sh
 RUN chmod +x /app/run.sh
+
+RUN chown root:root /usr/bin/sudo && chmod 4755 /usr/bin/sudo
+
 USER ubuntu
 
 CMD ["/app/run.sh"]
